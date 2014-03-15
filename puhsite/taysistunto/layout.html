@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    {% block meta_image %}
+      <meta property="og:image" content="http://puheenvuorot.kansanmuisti.fi/static/puheenvuorot-thumb.png" />
+    {% endblock %}
+    {% block meta_title %}
+      <meta property="og:title" content="Puheenvuorot" />
+    {% endblock %}
+    {% block meta_description %}
+      <meta property="og:description" content="Mistä eduskunnassa puhutaan? Seuraa täysistuntojen aiheita ja puheenvuoroja." />
+    {% endblock %}
+    <meta property="og:site_name" content="Puheenvuorot.kansanmuisti.fi" />
+    <meta property="fb:admins" content="577062897" />
+    <link rel="icon" type="image/png" href="http://puheenvuorot.kansanmuisti.fi/static/favicon.png"/>
+    
+    <link rel="stylesheet" href="/static/normalize.css"/>
+    <link rel="stylesheet" href="/static/styles.css?13"/>
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="/static/styles-ie-6-7.css"/>
+    <![endif]-->
+    
+    <title>{% block title %}Puheenvuorot{% endblock %}</title>
+    <script type="text/javascript" src="/static/jquery-1.6.4.js"></script>
+    {% block head %}{% endblock %}
+    {% block trend_head %}{% endblock %}
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-26479398-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+  </head>
+  <body>
+    <div id="header">
+      <h1><a href="/">Puheenvuorot</a></h1>
+      <h6 class="top">Mistä eduskunnassa puhutaan?</h6>
+
+      <nav>
+        <a href="/sanat">sanat</a>
+        •
+        <a href="/puhujat">puhujat</a>
+        •
+        <a href="/arkisto">istunnot</a>
+        •
+        <a href="/info">tietoa palvelusta</a>
+        •
+        <a class="feed-link" href="/istunnot/syote"></a>
+		•
+		<iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fpuheenvuorot.kansanmuisti.fi%2F&amp;send=false&amp;layout=button_count&amp;width=90&amp;show_faces=true&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:90px; height:21px;" allowTransparency="true"></iframe>
+      </nav>
+    </div>
+    {% block content %}{% endblock %}
+    <div id="footer">
+      {% block footer %}{% endblock %}
+    </div>
+    <script type="text/javascript" src="/static/site.js?2"></script>
+    <script type="text/javascript" src="/static/jquery.placeholder.min.js"></script>
+    <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share">
+</script>
+  </body>
+</html>

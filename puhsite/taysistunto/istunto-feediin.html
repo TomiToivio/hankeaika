@@ -1,0 +1,13 @@
+{% include 'taysistunto/include/istunnon-numerot.html' %}
+
+<h4>Aiheet:</h4>
+<ul>
+{% for subj in doc.subjects.all %}
+<li>
+  <a href="http://puheenvuorot.kansanmuisti.fi{{ subj.url }}">{{ subj.subject }}<span>
+    • {{ subj.action_count }}
+    puheenvuoro{% if subj.action_count > 1 %}a{% endif %}
+  </span></a>
+</li>
+{% endfor %}
+</ul>

@@ -1,0 +1,85 @@
+{% extends "taysistunto/layout.html" %}
+
+{% load jsonify %}
+
+{% block head %}
+<link rel="alternate" type="application/atom+xml" title="Puheenvuorot: {{ speaker }}" href="{{ speaker.url }}/syote" />
+<script type="text/javascript" src="/static/jquery.animate-colors-min.js"></script>
+<script type="text/javascript" src="/static/jquery.animcloud.js"></script>
+<script>
+$(function() {
+  var top_words = {{ speaker.details.top_words_by_year|jsonify|safe }};
+  top_words.all = {{ speaker.details.top_words|jsonify|safe }};
+  
+  $('#words').animcloud(top_words['all']);
+  
+  $('#trend a').click(function(e) {
+    e.preventDefault();
+    var y = $(this).attr('data-year');
+    $('#words').animcloud(top_words[y]);
+    $('#words-year').text(y);
+    $('#actions-by-year').load('/puheenvuorot?' + jQuery.param({
+      puhuja: '{{ speaker.id }}',
+      vuosi: y,
+      contentonly: 1
+    }));
+  });
+  
+});
+</script>
+{% endblock %}
+
+{% block title %}{{ speaker }} - Puheenvuorot {% endblock %}
+{% block content %}
+<article class="speaker">
+  <h2>{{ speaker }}</h2>
+
+  <div class="top-words-container">
+    <h4>Avainsanat: (<span id="words-year">1999-2011</span>)</h4>
+    {% if 0 %}
+    <p>Vuosi:
+      {% if speaker.details.top_word_years|length > 1 %}
+        <a class="years" href="#" data-year="all">kaikki</a>
+        {% for year in speaker.details.top_word_years %}
+        • <a class="years" href="#" data-year="{{ year }}">{{ year }}</a>
+        {% endfor %}
+      {% else %}
+        {{ speaker.details.top_word_years.0 }}
+      {% endif %}
+    </p>
+    {% endif %}
+    <div id="word-container">
+      <div id="backBuffer" class="wordcloud"></div>
+      <div id="words"></div>
+    </div>
+    
+  </div>
+
+  <div class="info">
+    <img src="{{ speaker.photoUrl }}"/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <p>
+      Tilaa uudet puheenvuorot<br/>
+      <a href="/#tilaa-{{ speaker.id }}" class="email-link">sähköpostitse</a> tai 
+      <a href="/puheenvuorot/syote?puhuja={{ speaker.id }}" class="feed-link">syötteenä</a>.
+    </p>
+    <p>
+      <a href="http://www.eduskunta.fi/triphome/bin/hex5000.sh?hnro={{ speaker.number }}">Eduskunnan tietosivu &raquo;</a>
+    </p>
+  </div>
+  
+  <h4>Puheenvuorot vuosittain:</h4>
+  {% with occ=speaker.words_by_month %}
+    {% include 'taysistunto/include/kuukausipalkit.html' %}
+  {% endwith %}
+  
+
+  <div id="actions-by-year">
+    {% include 'taysistunto/include/puheenvuoron-alku.html' %}
+  </div>
+  
+</article>
+{% endblock %}

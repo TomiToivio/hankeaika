@@ -1,0 +1,10 @@
+{% extends "taysistunto/puheenvuorolista.html" %}
+
+{% block title %}
+  {{ subj.subject }} - {{ doc.orig_title }} - Puheenvuorot
+{% endblock %}
+
+{% block subject_header %}
+  <h2><a href="{{ doc.url }}">{{ doc.orig_title }}</a></h2>
+  <h3>{{ subj.subject }}</h3>
+{% endblock %}

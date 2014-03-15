@@ -1,0 +1,52 @@
+{% extends 'taysistunto/email/email.html' %}
+
+{% block heading %}
+<h1 style="margin-bottom: 0; text-align: center">
+  <a style="text-decoration: none; color: #cc2314" href="http://puheenvuorot.kansanmuisti.fi{{ doc.url }}">{{ doc.orig_title }}</a>
+</h1>
+<h3 style="color: #666; text-align: center; font-size: 80%; font-weight: normal; margin-top: 0;">
+  {% include 'taysistunto/include/istunnon-numerot.html' %}
+</h3>
+{% endblock %}
+
+{% block body %}
+
+  {# todo: korvaa pilvi kuvalla? #}
+  <h2>Avainsanat</h2>
+  <div style="text-align: center; padding: 0 20px">
+  {% for word in doc.details.top_words %}
+    <span style="font-size: {{ word.1|add:word.1|add:word.1|add:10 }}px"
+       >{{ word.0 }}</span>
+  {% endfor %}
+  </div>
+  
+  <h2>Aiheet</h2>
+  <ul>
+    {% for subj in doc.subjects.all %}
+    <li>
+      <a style="text-decoration: none; color: #cc2314" href="http://puheenvuorot.kansanmuisti.fi{{ subj.url }}">{{ subj.subject }}<span
+          style="color: #424242; font-size: 80%; white-space: nowrap">
+        • {{ subj.action_count }}
+        puheenvuoro{% if subj.action_count > 1 %}a{% endif %}
+      </span></a>
+    </li>
+    {% endfor %}
+  </ul>
+  
+  <h2>Puhujat</h2>
+  {% for speaker in doc.details.top6_speakers %}
+  <span style="white-space: nowrap">{{ speaker.speaker }}{% if not forloop.last %}, {% endif %}</span>
+  {% endfor %}
+
+  {% if doc.details.more6_speakers_count > 1 %}
+    <span style="white-space: nowrap">+ {{ doc.details.more6_speakers_count }} muuta.</span>
+  {% endif %}
+  {% if doc.details.more6_speakers_count == 1 %}
+    <span style="white-space: nowrap">+ 1 muu.</span>
+  {% endif %}
+
+  <div style="text-align: right">
+  <a style="text-decoration: none; color: #cc2314"
+     href="http://puheenvuorot.kansanmuisti.fi{{ doc.url }}">Lue lisää &raquo;</a>
+  </div>
+{% endblock %}

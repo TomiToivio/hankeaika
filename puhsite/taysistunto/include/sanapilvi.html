@@ -1,0 +1,11 @@
+<div class="top-words-container">
+<h4>Avainsanat:</h4>
+{# HUOM: vastaava myös puhujan tiedoissa #}
+<ul class="top-words">
+{% for word in doc.details.top_words %}
+  <li class="weight-{{word.1}}">
+    <a href="/sanat/{{ word.0|urlencode }}">{{ word.0 }}</a>
+  </li>
+{% endfor %}
+</ul>
+</div>

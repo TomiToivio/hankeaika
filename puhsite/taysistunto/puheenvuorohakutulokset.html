@@ -1,0 +1,49 @@
+{% extends "taysistunto/puheenvuorolista.html" %}
+
+{% block title %}
+  {# HUOM: ihan sama alla #}
+  {% if speaker %}
+    {{ speaker }}:
+  {% endif %}
+  {% if year %}
+    Puheenvuorot vuonna {{ year }}
+  {% else %}
+    Kaikki puheenvuorot
+  {% endif %}
+  {% if word %}
+    hakusanalla {{ word }}
+  {% endif %}
+{% endblock %}
+
+{% block subject_header %}
+  <h2>
+  {# HUOM: ihan sama yllä #}
+  {% if speaker %}
+    {{ speaker }}:
+  {% endif %}
+  {% if year %}
+    Puheenvuorot vuonna {{ year }}
+  {% else %}
+    Kaikki puheenvuorot
+  {% endif %}
+  {% if word %}
+    hakusanalla '{{ word.word }}'
+  {% endif %}
+  </h2>
+  <h3>sivu {{ page.number }}/{{ page_count }}</h3>
+  <br/>
+{% endblock %}
+
+{% block action_header %}
+<h5>
+  <a href="{{ a.doc.url }}">{{ a.doc.orig_title }}</a>:
+  <a href="{{ a.url }}">{{ a.subject.subject }}</a>
+  • {{ a.doc.local_date }}
+</h5>
+{% endblock %}
+
+{% block footer %}
+  {% with page_url_prefix=actions_url_prefix %}
+    {% include 'taysistunto/include/sivutus-vanhemmat-uudemmat-ja-hyppy.html' %}
+  {% endwith %}
+{% endblock %}

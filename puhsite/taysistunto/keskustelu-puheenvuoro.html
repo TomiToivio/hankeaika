@@ -1,0 +1,26 @@
+{% extends "taysistunto/keskustelu.html" %}
+
+
+{% block meta_image %}
+  {# ei mitään, jotta FB ehdottaa pärstää #}
+{% endblock %}
+{% block meta_title %}
+  <meta property="og:title" content="{{ actions.0.speaker_then }}: puheenvuoro täysistunnossa {{ doc.orig_id }}" />
+{% endblock %}
+{% block meta_description %}
+  <meta property="og:description" content="&quot;{{ actions.0.text|truncatewords:100 }}&quot;" />
+{% endblock %}
+
+{% block title %}
+  {{ actions.0.speaker_then }} - {{ subj.subject }} - Puheenvuorot
+{% endblock %}
+
+{% block subject_details %}
+  <p>
+    {% if subj.action_count > 1 %}
+      <a href="{{ actions.0.url }}">&laquo; näytä koko keskustelu</a>
+    {% else %}
+      (ainoa puheenvuoro)
+    {% endif %}
+  </p>
+{% endblock %}

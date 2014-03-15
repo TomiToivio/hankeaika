@@ -1,0 +1,28 @@
+{% extends "taysistunto/puheenvuorolista.html" %}
+
+
+{% block content %}
+<article class="manage-subscriptions">
+  <h2>Tilaukset osoitteeseen {{ email }}</h2>
+  
+  {% if subscriptions %}
+  <p>
+    Puheenvuorot-palvelu lähettää sähköpostiosoitteseen <b>{{ email }}</b> viestejä seuraavista tapahtumista:
+  </p>
+    <ul>
+    {% for s in subscriptions %}
+    <li class="email-link">
+      {{ s }}
+      <form method="post" action="{{ s.unsubscribe_url }}">
+        {% csrf_token %}
+        <input type="submit" value="Lopeta tilaus"/>
+      </form>
+    </li>
+    {% endfor %}
+    </ul>
+  {% else %}
+  <p>Ei tilauksia.</p>
+  {% endif %}
+  
+</article>
+{% endblock %}

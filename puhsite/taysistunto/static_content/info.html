@@ -1,0 +1,64 @@
+{% extends 'taysistunto/layout.html' %}
+
+{% block content %}
+<article class="info">
+  
+  <div class="side">
+    <h4>Hiukan tekniikasta</h4>
+    <p>
+      Palveluun on koottu kansanedustajien puheenvuorot eduskunta.fi:n SGML-datasta.
+      Puheiden sanat erotellaan ja muunnetaan perusmuotoonsa
+      <a href="http://perusta.kansanmuisti.fi/perusta/">Perusta-palvelulla</a>, joka
+      pohjautuu <a href="http://sourceforge.net/projects/sukija/">Sukija-projektiin</a>.
+    </p>
+    <p>
+      Ruotsinkielisten puheenvuorojen sanoilla ei ole erityiskäsittelyä, joten
+      sanapilvissä näkyy myös ruotsia joukossa, ja välillä myös useammassa
+      taivutusmuodossa.
+    </p>
+  </div>
+  
+  <h2>Mistä on kyse</h2>
+  
+  <p>
+    Mistä eduskunnassa keskustellaan? Mitä oma edustajasi on sanonut?
+    Puheenvuorot-palvelu pyrkii vastaamaan tällaisiin kysymyksiin.
+  </p>
+  <p>
+    Etusivu kertoo, mistä viimeisimmissä täysistunnoissa on puhuttu,
+    ja kuka on ollut eniten äänessä. Istunnon puheenvuorojen useimmin toistuvat
+    sanat on koottu sanapilveksi. (Yleisimmin toistuvat sanat, kuten "ja" on
+    karsittu pois.)
+  </p>
+  <p>
+    Kunkin puhujan sivulla on vastaava sanapilvi kyseisen puhujan kaikkien
+    puheenvuorojen yleisimmistä sanoista. Yleisyyksiä voi tarkastella
+    myös vuosikohtaisesti.
+  </p>
+  <p>
+    Sanapilven sanan klikkaaminen vie sivulle, joka kertoo sanan yleisyyden
+    ja viimeisimmät puheenvuorot, joissa se esiintyy.
+  </p>
+  <p>
+    Palvelusta tarjoaa syötteen kunkin puhujan puheenvuoroista,
+    kaikista uusimmista istunnoista sekä puheenvuoroista joissa esiintyy tietty sana.
+    <a href="http://www.e-conomic.fi/uutisia/rss/rss-syote-opas">Lue lisää syötteiden käytöstä.</a>
+  </p>
+  <p>
+    Palvelun tietolähteenä ovat
+    <a href="http://www.eduskunta.fi/triphome/bin/akx3000.sh?kanta=utaptk&LYH=LYH-PTK&haku=PTKSUP&kieli=su&VPVUOSI>=1999">eduskunnan
+    täysistuntojen pöytäkirjat</a> ja niistä nimenomaan puheenvuoro-osuudet.
+  </p>
+  <p>
+    Mitäkö tekemistä tällä on mainion
+    <a href="http://www.kansanmuisti.fi">Kansan muisti -palvelun</a> kanssa?
+    Tämä palvelu liitetään mahdollisesti myöhemmin osaksi sitä. Tässä vaiheessa
+    kiitokset KaMulle osoitteen tarjoamisesta tälle palvelulle.
+  </p>
+  
+  <p style="text-align: right">
+    <a href="mailto:tuomas.salo@iki.fi">&mdash; tekijä</a>
+  </p>
+  
+</article>
+{% endblock %}

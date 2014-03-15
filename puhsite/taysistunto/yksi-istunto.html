@@ -1,0 +1,19 @@
+{% extends "taysistunto/layout.html" %}
+
+{% block title %}{{ doc.orig_title }} - Puheenvuorot{% endblock %}
+
+{% block content %}
+<article class="detail">
+  <div class="prev-next">
+    {% if doc.prev %}
+    <a class="prev" href="{{ doc.prev.url }}">&laquo; {{ doc.prev.orig_title }}</a>
+    {% endif %}
+    {% if doc.next %}
+    <a class="next" href="{{ doc.next.url }}">{{ doc.next.orig_title }} &raquo;</a>
+    {% endif %}
+    <br style="clear: both"/>
+  </div>
+  {% include 'taysistunto/include/istunnon-sisalto-detaljisivulla.html' %}
+  <br style="clear: both"/>
+</article>
+{% endblock %}

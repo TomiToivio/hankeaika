@@ -1,0 +1,36 @@
+<div class="top-speakers-container">
+<h4>Puhujat:</h4>
+<ul class="top-speakers">
+{% for speaker in doc.details.top_speakers %}
+
+  {# HUOM! melkein sama alla!!!!! #}
+  <li class="weight-{{ speaker.Weight }}">
+    <a href="{{ speaker.speaker.url }}" title="{{ speaker.speaker }}">
+      <img src="{{ speaker.speaker.photoUrl }}"/>
+      <span>{{ speaker.speaker }}</span>
+    </a>
+  </li>
+  {########################}
+  
+{% endfor %}
+
+
+{% if doc.details.more_speakers_count %}
+  <li class="more">
+    <a href="#" id="show-all-speakers">
+      Näytä loput {{ doc.details.more_speakers_count }} puhujaa &raquo;
+    </a></li>
+{% endif %}
+{% for speaker in doc.details.bottom_speakers %}
+
+  {# HUOM! melkein sama yllä!!!!! #}
+  <li class="weight-{{ speaker.Weight }} rest">
+    <a href="{{ speaker.speaker.url }}" title="{{ speaker.speaker }}">
+      <img src="{{ speaker.speaker.photoUrl }}"/>
+      <span>{{ speaker.speaker }}</span>
+    </a>
+  </li>
+  {########################}
+
+{% endfor %}
+</div>

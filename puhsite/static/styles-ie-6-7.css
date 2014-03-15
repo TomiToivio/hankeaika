@@ -1,0 +1,16 @@
+body {
+  padding-top: 20px;
+}
+div.summary .top-speakers li {
+  display: inline;
+  float; left;
+}
+/* linkit menee minne sattuu. laitetaan edes pysymaan yhdella rivilla */
+div.summary a.read-more {
+  white-space: nowrap;
+}
+
+/* ei nay linkki muuten, koska siina ei ole tekstia */
+nav a.feed-link {
+  display: inline-block;
+}

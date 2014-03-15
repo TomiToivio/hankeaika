@@ -1,0 +1,25 @@
+{# tätä käytetään myös ajaxilla #}
+<h4>
+{% if year %}
+  Puheenvuorot vuonna {{ year }}:
+{% else %}
+  Viimeisimmät puheenvuorot:
+{% endif %}
+</h4>
+<ul class="latest-actions">
+{% for a in latest_actions %}
+  <li>
+    <a href="{{ a.url }}">{{ a.text|truncatewords:50 }}</a><br/>
+    <span>{{ a.doc.local_date }} • {{ a.doc.orig_title }}</span>
+  </li>
+{% endfor %}
+</ul>
+<p>
+{% if year %}
+  Vuonna {{ year }} yhteensä {{ action_count }} puheenvuoroa.
+  <a href="{{ speaker.url }}/puheenvuorot/vuosi-{{ year }}">Selaa &raquo;</a>
+{% else %}
+  Yhteensä {{ action_count }} puheenvuoroa.
+  <a href="{{ speaker.url }}/puheenvuorot">Selaa &raquo;</a>
+{% endif %}
+</p>

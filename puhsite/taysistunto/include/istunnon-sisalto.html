@@ -1,0 +1,17 @@
+{# abstrakti! #}
+
+<h2><a href="{{ doc.url }}">{{ doc.orig_title }}</a></h2>
+
+<h3>
+  {% include 'taysistunto/include/istunnon-numerot.html' %}
+</h3>
+
+<div class="left">
+  {% block document_left %}{% endblock %}
+</div>
+<div class="right">
+  {% block document_right %}{% endblock %}
+</div>
+<div class="bottom">
+  {% block document_bottom %}{% endblock %}
+</div>

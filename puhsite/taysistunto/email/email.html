@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="utf-8"/></head>
+  <body style="background-color: #e2e2e2; font-family: Georgia, serif;">
+  <div style="width: 620px; padding: 15px 15px 0; margin: auto; text-align: center;">
+  {% block heading %}{% endblock %}
+  </div>
+  <div style="background-color: #f7f6f4; width: 620px; padding: 15px; color: #424242; margin: auto; border: 1px solid #bbb; border-radius: 7px;">
+  {% block body %}
+  {% endblock %}
+  </div>
+  <div style="color: #000; width: 620px; margin: auto; padding: 4px 15px 15px; font-size: 80%; font-style: italic">
+    Tämä viesti lähetettiin <a style="color: #cc2314" href="http://puheenvuorot.kansanmuisti.fi/">Puheenvuorot-palvelusta</a>
+    osoitteeseen <a style="color: #cc2314" href="mailto:{{ sub.email }}">{{ sub.email }}</a>. 
+    <a style="color: #cc2314" href="http://puheenvuorot.kansanmuisti.fi{{ manage_url }}">Muuta tai lopeta tilauksiasi.</a>
+  </div>
+</body></html>

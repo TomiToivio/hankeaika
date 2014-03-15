@@ -1,0 +1,22 @@
+<div class="top-speakers-container">
+<h4>Puhujat:</h4>
+<ul class="top-speakers">
+{% for speaker in doc.details.top6_speakers %}
+
+  <li class="weight-{{ speaker.Weight }}">
+    <a href="{{ speaker.speaker.url }}" title="{{ speaker.speaker }}">
+      <img alt="{{ speaker.speaker }}" src="{{ speaker.speaker.photoUrl }}"/>
+    </a>
+  </li>
+  {########################}
+  
+{% endfor %}
+
+{% if doc.details.more6_speakers_count > 1 %}
+  <li class="more">+{{ doc.details.more6_speakers_count }} muuta</li>
+{% endif %}
+{% if doc.details.more6_speakers_count == 1 %}
+  <li class="more">+1 muu</li>
+{% endif %}
+</ul>
+</div>

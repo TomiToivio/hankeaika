@@ -1,0 +1,15 @@
+{% extends "taysistunto/puheenvuorolista.html" %}
+
+
+{% block content %}
+<article class="subscription-feed-link">
+  <h2>Syöte: {{ feed_title }}</h2>
+
+  <p>
+  	Syötteen osoite:<br/><a class="feed-link" href="{{ feed_url }}">{{ feed_url }}</a>
+  </p>
+  <p>
+	<a href="http://fusion.google.com/add?source=atgs&amp;feedurl={{ feed_url|urlencode }}"><img src="http://buttons.googlesyndication.com/fusion/add.gif" border="0" alt="Add to Google"></a>
+  </p>
+</article>
+{% endblock %}

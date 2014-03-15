@@ -1,0 +1,82 @@
+{% extends "taysistunto/layout.html" %}
+
+{% block title %}
+  Vuosi {{ chosen_year }} - Arkisto - Puheenvuorot
+{% endblock %}
+
+{% block head %}
+<script src="/static/jquery.tablesorter.min.js"></script>
+<link rel="stylesheet" href="/static/tablesorter-styles/style.css"/>
+<script>
+  $(function() {
+    $('table.docs tbody tr').each(function(i) {
+      $(this).data('pos', i);
+    });
+    $('table.docs').addClass('tablesorter').tablesorter({
+      textExtraction: function(node) {
+        if($(node).parent().children().index(node) < 2) {
+          return $(node).parent().data('pos');
+        } else {
+          return $(node).text();
+        }
+      },
+      sortList: [[0,0]]
+    });
+  });
+</script>
+{% endblock %}
+
+{% block content %}
+<article class="archive">
+  <h2>Arkisto: vuoden {{ chosen_year }} istunnot</h2>
+  
+  
+  <div class="left">
+    <h4>Kaikki vuodet</h4>
+    <ul>
+    {% for year in years %}
+      <li>
+      {% if year.year == chosen_year %}
+        <b>{{ year.year }}:
+        {{ year.id__count }} istuntoa</b>
+      {% else %}
+        <a href="{{ year.year }}">{{ year.year }}:
+        {{ year.id__count }} istuntoa</a>
+      {% endif %}
+      </li>
+    {% endfor %}
+    </ul>
+  </div>
+  <div class="right">
+  
+    <h4>Kaikki vuoden {{ chosen_year }} täysistunnot, joissa on ollut keskustelua</h4>
+    <p>Huom: vaalivuosina vanhan eduskunnan viimeiset istunnot ovat edellisen vuoden lopussa.</p>
+    
+    <table class="docs">
+      <thead>
+        <tr>
+          <th>istunto</th>
+          <th>pvm</th>
+          <th>aiheita</th>
+          <th>puhujia</th>
+          <th>pvuoroja</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for doc in docs %}
+        <tr>
+          <td><a href="{{ doc.url }}">{{ doc.orig_title }}</a></td>
+          <td>{{ doc.local_date }}</td>
+        {% with stats=doc.stats %}
+          <td>{{ stats.subject_count }}</td>
+          <td>{{ stats.action_count }}</td>
+          <td>{{ stats.speaker_count }}</td>
+        {% endwith %}
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <br style="clear: both"/>
+</article>
+{% endblock %}

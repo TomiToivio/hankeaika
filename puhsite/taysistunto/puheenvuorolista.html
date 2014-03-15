@@ -1,0 +1,43 @@
+{# abstrakti! #}
+{% extends "taysistunto/layout.html" %}
+
+
+{% block content %}
+<article class="subject">
+  {% block subject_header %}{% endblock %}
+  {% block subject_details %}{% endblock %}
+  {% for a in actions %}
+    <a id="a{{ a.id }}"></a>
+    <div class="speaker">
+      <a href="{{ a.speaker_then.url }}"><img src="{{ a.speaker_then.photoUrl }}"/></a>
+    </div>
+    <div class="text">
+      <h4 class="speaker"><a href="{{ a.speaker_then.url }}">{{ a.speaker_then }}</a>:</h4>
+      {% block action_header %}{% endblock %}
+      {{ a.text|linebreaks }}
+      <div class="share">
+        <a href="{{ a.single_url }}">linkki tähän</a>
+        •
+        <div style="width: 90px" class="fb-like" data-href="{{ a.single_url }}" data-send="false" data-layout="button_count" data-width="90" data-show-faces="false"></div>
+        <div id="fb-root"></div>
+           
+      </div>
+    </div>
+    <br style="clear: both"/>
+  {% endfor %}
+  <script>
+  (function(d, s, id) {
+  
+    if(navigator.userAgent.match(/MSIE [67]\b/)) {
+      return;
+    }
+
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+  </script>
+</article>
+{% endblock %}

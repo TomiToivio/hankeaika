@@ -1,0 +1,641 @@
+body {
+  background: #e2e2e2;
+  font-family: Georgia, serif;
+  margin-bottom: 60px;
+}
+div#header,
+div#footer {
+    margin: -5px auto -10px;
+    width: 960px;}
+div#header {
+  background-image: url("eduskuntatalo.png");
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+}
+article {
+  width: 940px;  
+  border: 1px solid #bbb;
+  background-color: #f7f6f4;
+  color: #424242;
+  border-radius: 7px;
+  padding: 0 20px 20px;
+  margin: 10px auto;
+  text-align: center;
+}
+div.summary {
+  width: 980px;
+  margin: 0 auto;
+}
+div.summary a.read-more {
+  display: block;
+  clear:both;
+  float: right;
+}
+
+ul.top-words {
+  list-style: none;
+  text-align: center;
+  width: 400px;
+  margin: auto;
+  padding: 0;
+}
+
+
+article.subscription-feed-link p {
+  margin: 60px 0;
+}
+
+article.subscribe {
+  text-align: left;
+}
+article.subscribe h2 {
+  margin-bottom: 0;
+}
+div#subscribe {
+  margin-left: 50px;
+}
+div#subscribe ul {
+  list-style: none;
+}
+div#subscribe li {
+ margin-top: 5px; 
+}
+div#subscribe input[type=radio] {
+  margin-right: 5px;
+}
+div#subscribe input[type=text] {
+  width: 250px;
+}
+div#subscribe input[type=submit] {
+  margin-top: 15px;
+}
+div#subscribe p.disclaimer {
+  font-size: 80%;
+  font-style: italic;
+  margin-left: 40px;
+}
+
+article.detail ul.top-words {
+  padding: 15px 0;
+}
+article.detail div.left {
+  width: 400px;
+  float: left;
+ 
+}
+article.detail div.right {
+  width: 440px;
+  margin-left: 50px;
+  text-align: left;
+  float: left;
+}
+div.summary div.bottom {
+  clear: both;
+}
+
+article.detail div.top-words-container {
+  width: 400px;
+  float: left;
+}
+article.detail div.top-speakers-container {
+  width: 360px;
+  margin-left: 20px;
+  float: left;
+}
+
+ul.top-words li {
+  display: inline;
+  padding: 2px;
+}
+h1 {
+  text-align: center;
+  font-size: 60px;
+  margin-bottom: 0;
+  text-shadow: 1px 1px 1px #EEEEEE;
+}
+h1 a,
+h1 a:visited {
+  color: #424242;
+}
+h6.top {
+  margin: 0 auto 0;
+  font-weight: normal;
+  font-style: italic;
+  font-size: 14px;
+  text-align: center;
+}
+h2 {
+  margin-bottom: 4px;
+  margin-top: 30px;
+  text-align: center;
+}
+a {
+  color: #cc2314; 
+}
+a:visited {
+  color: #cc2314; 
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+h3 {
+  color: #666;
+  margin-top: 0;
+  font-size: 12px;
+  font-weight: normal;
+  text-align: center;
+}
+ul.top-words li.weight-5 a { font-size: 24px; color: #000 }
+ul.top-words li.weight-4 a { font-size: 20px; color: #222 }
+ul.top-words li.weight-3 a { font-size: 17px; color: #555 }
+ul.top-words li.weight-2 a { font-size: 14px; color: #888 }
+ul.top-words li.weight-1 a { font-size: 11px; color: #bbb }
+
+div.summary .top-speakers li {
+  display: inline-block
+}
+div.summary .top-speakers span {
+  display: none;
+}
+/*** vanhemmat- ja uudemmat-linkki, sivuhyppäin */
+a.older {
+  display: block;
+  float: left;
+}
+a.newer {
+  display: block;
+  float: right;
+}
+div.select-page {
+  text-align: center;
+}
+/************/
+
+
+.top-speakers {
+  float: left;
+}
+.top-speakers li {
+  text-align: left;
+}
+article.detail .top-speakers li.more {
+  margin-top: 20px;
+  margin-left: 66px;
+}
+ul.top-speakers li,
+ul.top-speakers.show-all li.rest {
+  display: block;
+}
+ul.top-speakers li.rest {
+  display: none;
+}
+ul.top-speakers.show-all li.more {
+  display: none;
+}
+
+
+article.detail ul.top-speakers li.weight-5 img { margin: 0 5px }
+article.detail ul.top-speakers li.weight-4 img { margin: 0 5px }
+article.detail ul.top-speakers li.weight-3 img { margin: 0 9px }
+article.detail ul.top-speakers li.weight-2 img { margin: 0 13px }
+article.detail ul.top-speakers li.weight-1 img { margin: 0 17px }
+
+
+article.detail div.prev-next {
+  margin-bottom: -20px;
+}
+article.detail div.prev-next a.prev {
+  display: block;
+  float: left;
+  margin-top: 10px;
+}
+article.detail div.prev-next a.next {
+  display: block;
+  float: right;
+  margin-top: 10px;
+}
+
+div.top-words-container {
+  width: 400px;
+  float: left;
+}
+div.top-speakers-container {
+  width: 460px;
+  margin-left: 20px;
+  float: left;
+}
+
+h4 {
+  font-style: italic;
+  font-weight: normal;
+  text-align: left;
+  border-bottom: 1px dashed #ddd;
+  margin-right: 20px;
+}
+
+h4.speaker {
+  margin-top: 5px;
+}
+
+h5 {
+  margin-top: 0;
+  font-weight: normal;
+  margin-top: -16px;
+  padding-left: 16px;
+}
+
+.top-speakers {
+  margin: 0 0 15px 15px;
+  padding: 0;
+  list-style: none;
+}
+.top-speakers a {
+  margin: 5px 0;
+  list-style: none;
+  display: block;
+  clear: both;
+  text-decoration: none;
+}
+
+.top-speakers a:hover span {
+  text-decoration: underline;
+}
+.top-speakers img {
+  box-shadow: 0 0 4px #888;
+  margin-right: 15px;
+  vertical-align: middle;
+  background-color: white; /* kuville joita ei löydy */
+  -ms-interpolation-mode: bicubic;
+}
+.top-speakers li.weight-5 img { border: 2px solid white; width: 48px; height: 72px; }
+.top-speakers li.weight-4 img { border: 2px solid white; width: 48px; height: 72px; }
+.top-speakers li.weight-3 img { border: 2px solid white; width: 40px; height: 60px; }
+.top-speakers li.weight-2 img { border: 2px solid white; width: 32px; height: 48px; }
+.top-speakers li.weight-1 img { border: 2px solid white; width: 24px; height: 36px; }
+
+ul.subjects {
+  text-align: left;
+  list-style-type: circle;
+  margin: 0 0 0 20px;
+  padding: 0px 20px;
+  font-size: 80%;
+}
+ul.subjects li {
+  margin-bottom: 2px;
+}
+ul.subjects a span {
+  font-size: 80%;
+  color: #424242;
+  white-space: nowrap;
+}
+
+article.subject div.speaker {
+  float: left;
+  width: 100px;
+  padding-bottom: 20px;
+}
+/* puolikokoinen kuva */
+img.speaker-half,
+article.subject div.speaker img {
+  border: 4px solid white;
+  width: 64px;
+  height: 96px;
+  box-shadow: 0 0 2px #888;
+  background-color: white; /* kuville joita ei löydy */
+}
+/* alkuperäisen kokoinen kuva */
+article.speaker img {
+  border: 4px solid white;
+  width: 128px;
+  height: 192px;
+  box-shadow: 0 0 4px #888;
+  background-color: white; /* kuville joita ei löydy */
+  display: block;
+}
+article.speaker div.info {
+  text-align: left;
+  width: 350px;
+  float: left;
+  margin-left: 20px;
+}
+article.speaker div.info img {
+  float: left;
+  margin-right: 20px;
+}
+article.speaker .top-words-container {
+  float: right;
+  margin-right: 20px;
+  width: 450px;
+}
+article.speaker .top-words-container h4 {
+  padding-top: 0;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+article.speaker h2,
+article.speaker h3 {
+  padding-bottom: 20px;
+}
+article.speaker h4 {
+  padding-top: 20px;
+  clear: both;
+}
+
+article.speaker #word-container {
+  position: relative;
+  width: 400px;
+  height: 200px;
+}
+article.speaker #words,
+article.speaker #backBuffer {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+article.speaker #backBuffer {
+  visibility: hidden;
+}
+
+nav {
+  color: #aaa;
+  text-align: right;
+  padding: 3px 0;
+}
+nav .feed-link {
+  padding-right: 4px;
+}
+nav iframe {
+  position: relative;
+  top: 5px;
+  margin-right: -20px;
+}
+  
+article.subject div.text {
+  margin-left: 100px;
+  text-align: left;
+}
+article.subject div.text p {
+  margin-top: 0;
+}
+article.subject div.text p.speaker {
+  font-style: italic;
+}
+
+article.speaker ul.latest-actions {
+  text-align: left;
+  list-style-type: circle;
+}
+article.speaker ul.latest-actions span {
+  font-size: 80%;
+}
+
+/* lue lisää -linkki */
+article.speaker ul.latest-actions ul a {
+  white-space: nowrap;
+}
+article.speaker ul.latest-actions > li {
+  padding-bottom: 2px;
+}
+article.speaker ul.latest-actions ul {
+  margin-top: 0;
+  margin-bottom: 3px;
+}
+
+
+article.archive div.left {
+  width: 250px;
+  float: left;
+  text-align: left;
+  
+}
+article.archive div.right {
+  width: 590px;
+  margin-left: 50px;
+  text-align: left;
+  float: left;
+}
+
+
+article.archive-speakers div.left {
+  width: 450px;
+  float: left;
+  text-align: left;
+}
+article.archive-speakers h4 span {
+  white-space: nowrap;
+}
+article.archive-speakers div.right {
+  width: 450px;
+  margin-left: 30px;
+  text-align: left;
+  float: left;
+}
+article.archive-speakers div.right h2 {
+  margin-bottom: 40px;
+}
+article.archive-speakers div table {
+  width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+article.archive table.docs thead tr {
+  border-bottom: 1px solid #888;
+}
+article.archive table.docs tr {
+  border-bottom: 1px solid #ddd;
+}
+article.archive table.docs td,
+article.archive table.docs th {
+  font-weight: normal;
+}
+article.archive table.docs th {
+  background-color: #ddd;
+  vertical-align: bottom;
+}
+article.archive table.docs th,
+article.archive table.docs td {
+  padding: 2px 10px 2px 2px;
+  text-align: right;
+}
+article.archive table.docs th:first-child,
+article.archive table.docs td:first-child {
+  text-align: left;
+}
+
+div#trend {
+  background-image: linear-gradient(bottom, rgb(220,220,220) 0%, rgb(255,255,255) 100%);
+  background-image: -o-linear-gradient(bottom, rgb(220,220,220) 0%, rgb(255,255,255) 100%);
+  background-image: -moz-linear-gradient(bottom, rgb(220,220,220) 0%, rgb(255,255,255) 100%);
+  background-image: -webkit-linear-gradient(bottom, rgb(220,220,220) 0%, rgb(255,255,255) 100%);
+  background-image: -ms-linear-gradient(bottom, rgb(220,220,220) 0%, rgb(255,255,255) 100%);
+
+  background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0, rgb(220,220,220)),
+    color-stop(1, rgb(255,255,255))
+  );
+  width: 768px; /* 16 vuotta * 48 px/vuosi */
+  height: 60px;
+  margin: auto auto 50px;
+  position:relative;
+}
+div#trend a {
+  float: left;
+  display: block;
+  height: 80px;
+  width: 48px;
+}
+/* icon thanks to famfamfam.com */
+.feed-link {
+  padding-left: 20px;
+  background-image: url(/static/feed.png);
+  background-repeat: no-repeat;
+  background-position: 0 50%;
+}
+.email-link {
+  padding-left: 20px;
+  background-image: url(/static/email.png);
+  background-repeat: no-repeat;
+  background-position: 0 50%;
+}
+nav a.feed-link {
+  display: inline-block;
+  padding-left: 16px;
+  padding-right: 0px;
+  height: 16px;
+  position: relative;
+  top: 2px;
+}
+article.word a.feed-link {
+  display: inline-block;
+  float: right;
+}
+div#trend a:hover,
+div#trend a:hover span {
+  text-decoration: underline;
+}
+
+div#trend a span {
+  float: left;
+  display: block;
+  width: 47px; 
+}
+
+div#trend a:hover span.grid {
+  background-color: rgba(204,35,20,.3);
+}
+
+div#trend a span.grid {
+  height:59px;
+  border: 1px solid #bbb;
+  border-left: 0;
+}
+div#trend a:first-child span.grid {
+  border-left: 1px solid #bbb;
+  width: 48px;
+}
+ul.actions-short li {
+  clear: both;
+  text-align: left;
+  list-style: none;
+  margin-bottom: 10px;
+}
+ul.actions-short img {
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+ul.actions-short span.addl {
+  font-size: 80%; 
+}
+
+article.speaker ul.actions-short img,
+article.speaker ul.actions-short span.speaker {
+  display: none;
+}
+
+article.info p {
+  text-align: left;
+}
+article.info div.side {
+  float: right;
+  width: 300px;
+  margin: 40px 0 30px 30px;
+  padding-left: 10px;
+  border-left: 1px solid #888;
+  font-size: 80%;
+}
+
+article.words form {
+  margin: 10px;
+}
+article.words form input {
+  padding: 2px 5px;
+}
+article.words form table {
+  margin: auto;
+}
+article.words form th {
+  text-align: right;
+}
+article.words form td {
+  text-align: left;
+  padding: 2px 5px;
+}
+
+
+div.share {
+  font-size: 80%;
+  text-align: left;
+  color: #888;
+}
+div.share > a {
+  padding-right: 2px;
+}
+div.share div.fb-like {
+  position: relative;
+  top: 2px;
+  padding-left: 5px;
+}
+/*
+.clearfix {
+    display: inline-block;
+}
+.clearfix:after {
+    content: " ";
+    display: block;
+    height: 0;
+    clear: both;
+    overflow: hidden;
+    visibility: hidden;
+}
+.clearfix {
+    display: block;
+}
+*/
+
+
+article.manage-subscriptions h2 {
+  padding-bottom: 40px;
+}
+article.manage-subscriptions form {
+  display: inline;
+}
+article.manage-subscriptions p,
+article.manage-subscriptions ul {
+  list-style: none;
+  text-align: left;
+  margin-top: 20px;
+}
+article.manage-subscriptions li {
+  margin-top: 16px;
+}
+
+/* for placeholder polyfill */
+.placeholder { color: #aaa; }

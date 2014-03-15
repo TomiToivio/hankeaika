@@ -1,0 +1,28 @@
+{% load jsonify %}
+{% block trend_head %}
+  <script type="text/javascript" src="/static/jquery.sparkline.min.js"></script>
+  <script>
+    $(function() {
+      $('#trend > span:first').sparkline({{ occ|jsonify }}, {
+        type: 'bar',
+        barColor: '#424242',
+        barWidth: 3,
+        height: 50
+      });
+    });
+  </script>
+{% endblock %}
+
+{% spaceless %}
+<div id="trend">
+  <span style="position:absolute; left: 0; top: 10px; "></span>
+  <div style="position:absolute; left: 0; top: 0px;">
+  {% for y in years %}
+  <a data-year="{{ y }}" href="{{ trend_url_prefix }}{{ y }}">
+    <span class="grid"></span><br/>
+    <span style="padding-top:6px;">{{ y }}</span>
+  </a>
+  {% endfor %}
+  </div>
+{% endspaceless %}
+</div>

@@ -1,0 +1,21 @@
+{% extends "taysistunto/puheenvuorolista.html" %}
+
+{% block title %}
+  {{ speaker }} - kaikki puheenvuorot - Puheenvuorot
+{% endblock %}
+
+{% block subject_header %}
+  <h2>{{ speaker }} - kaikki puheenvuorot</h2>
+  <br/>
+{% endblock %}
+
+{% block action_header %}
+<h5>
+  <a href="{{ a.doc.url }}">{{ a.doc.orig_title }}</a>:
+  <a href="{{ a.url }}">{{ a.subject.subject }}</a>
+</h5>
+{% endblock %}
+
+{% block footer %}
+  {% include 'taysistunto/include/sivutus-vanhemmat-uudemmat-ja-hyppy.html' %}
+{% endblock %}

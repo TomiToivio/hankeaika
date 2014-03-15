@@ -1,0 +1,14 @@
+{% extends 'taysistunto/include/sivutus-vanhemmat-uudemmat.html' %}
+
+{% block addl_pagination %}
+<div class="select-page">
+siirry sivulle
+<select onchange="location.href='{{ page_url_prefix }}' + this[this.selectedIndex].value">
+  {% for p in page_range %}
+    <option value="{{ p }}" {% ifequal p page.number %} selected {% endifequal %}>
+      {{ p }}/{{ page_count }}
+    </option>
+  {% endfor %}
+</select>
+</div>
+{% endblock %}

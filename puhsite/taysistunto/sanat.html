@@ -1,0 +1,66 @@
+{% extends 'taysistunto/layout.html' %}
+
+{% block head %}
+<script>
+  $(function() {
+    $('form#find-word').submit(function(e) {
+      var s = $('#word-to-find').val();
+      s = s ? s : 'pankkikriisi';
+      
+      if($('#word-speaker').val()) {
+        s += '?puhuja=' + $('#word-speaker').val();
+      }
+      
+      location.href = '/sanat/' + s;
+      e.preventDefault();
+    });
+  });
+</script>
+  
+{% endblock %}
+
+{% block content %}
+<article class="words">
+  
+  <h2>Hae kaikista puheenvuoroista</h2>
+  
+  <form id="find-word">
+    <table>
+      <tr>
+        <th>sana:</th>
+        <td>
+          <input id="word-to-find" placeholder="esim. 'pankkikriisi'" value="{{ word_not_found }}"/>
+        </td>
+      </tr>
+      <tr>
+        <th>puhuja:</th>
+        <td>
+          <select id="word-speaker">
+            <option value="">(kaikki)</option>
+            {% for s in speakers %}
+              <option value="{{s.id}}">{{ s }}</option>
+              {# <option value="{{s.id}}">{{ s.last_name }} {{ s.first_name }} ({{s.group }})</option> #}
+            {% endfor %}
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <th></th>
+        <td>
+          <input type="submit" value="   Hae   "/>
+        </td>
+      </tr>
+    </table>
+    
+    {% if word_not_found %}
+    <p>
+      Sanaa '{{ word_not_found }}' ei löytynyt. Kirjoita sana perusmuodossaan, esim.
+      'pankkikriisi' tai 'vakauttaa'.
+    </p>
+    {% endif %}
+    
+  </form>
+  
+  
+</article>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "taysistunto/layout.html" %}
+
+{% block title %}
+  Kaikki puhujat - Puheenvuorot
+{% endblock %}
+
+{% block content %}
+<article class="archive archive-speakers">
+  <div class="left">
+  <h2>Nykyiset kansanedustajat</h2>
+  
+  {% for g in current_groups %}
+    <h4>{{ g.name }} <span>({{ g.members|length }} edustajaa)</span></h4>
+    <table class="docs">
+      <tr>
+        <th>nimi</th>
+        <th>ryhmä</th>
+      </tr>
+    {% for speaker in g.members %}
+      <tr>
+        <td><a href="{{ speaker.url }}">{{ speaker.last_name }} {{ speaker.first_name }}</a></td>
+        <td>{{ speaker.group }}</td>
+      </tr>
+    {% endfor %}
+    </table>
+  {% endfor %}
+  </div>
+  <div class="right">
+  <h2>Aiemmat kansanedustajat<br/>ja muut puhujat</h2>
+  
+    <table class="docs">
+      <tr>
+        <th>nimi</th>
+        <th>ryhmä</th>
+      </tr>
+    {% for speaker in other_speakers %}
+      <tr>
+        <td><a href="{{ speaker.url }}">{{ speaker.last_name }} {{ speaker.first_name }}</a></td>
+        <td>{{ speaker.group }}</td>
+      </tr>
+    {% endfor %}
+    </table>
+  </div>
+  <br style="clear: both"/>
+</article>
+{% endblock %}

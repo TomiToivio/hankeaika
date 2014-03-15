@@ -1,0 +1,16 @@
+{# tämä kaipaa Paginator-tyyppisen page-muuttujan, ja lisäksi page_url_prefix-muuttujan #}
+{% if page.has_other_pages %}
+  {% block footer %}
+
+    {% if page.has_next %}
+      <a class="older" href="{{ page_url_prefix }}{{ page.next_page_number }}">&laquo; vanhempia</a>
+    {% endif %}
+
+    {% if page.has_previous %}
+      <a class="newer" href="{{ page_url_prefix }}{{ page.previous_page_number }}">uudempia &raquo;</a>
+    {% endif %}
+
+    {% block addl_pagination %}{% endblock %}
+    
+  {% endblock %}
+{% endif %}
