@@ -13,6 +13,17 @@ Muutamia huomioita:
 
 * `settings.py` ja import-skriptit vaativat `local-conf`-hakemiston, johon tiedostot `secret.txt`, `db-user.txt` ja `db-pass.txt`.
 
+Tietokannan olennaisimmat taulut ja taulussa olevan rivin sisältö:
+
+* **document** - yksi täysistunto (huom. id-kenttä on merkkijono muotoa "3-2014")
+* **subject** - täysistunnossa käsiteltävä aihe
+* **action** - puheenvuoro yhdessä aiheessa
+* **speaker** - puhuja (yleensä kansanedustaja)
+* **word** - sana, joka esiintyy puheenvuorossa
+  * stop-tieto kertoo, onko kyseessä yleinen sana, jota ei huomioida sanapilvissä.
+* **word_occurrence** - yksittäisen sanan esiintymismäärä tietyssä puheenvuorossa
+* **document_subscription** ja **action_subscription** - sähköpostitilaus joko kaikista täysistunnoista tai tietyt kriteerit täyttävistä puheenvuoroista
+
 LICENSE
 =======
 
