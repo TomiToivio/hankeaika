@@ -4,7 +4,6 @@
 	/* MySQL-asetukset */
 	$link = mysql_connect('', '', '');
       	mysql_select_db('');
-
 	mysql_set_charset("utf8");
 
     	$handle = fopen("eura.csv", "r");
