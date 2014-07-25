@@ -11,10 +11,8 @@ local $/;
 
 use PuhDB;
 
-
 binmode STDIN,  ":utf8";
 binmode STDOUT, ":utf8";
-
 
 my $Conn = PuhDB::conn();
 
@@ -24,8 +22,6 @@ my @speakers = @{$Conn->selectcol_arrayref("
     DISTINCT speaker_id
   FROM
     action
---  WHERE
---    date > '2011-05-01'
   ORDER BY 1
 ")};
 
@@ -44,7 +40,6 @@ my $wordstats_query = $Conn->prepare("
     AND a.speaker_id=?
   GROUP BY 2
   ORDER BY 1 DESC
-  LIMIT 30
 ");
 my $wordstats_by_year_query = $Conn->prepare("
   SELECT
@@ -62,7 +57,6 @@ my $wordstats_by_year_query = $Conn->prepare("
     AND a.year=?
   GROUP BY 2
   ORDER BY 1 DESC
-  LIMIT 30
 ");
 
 my $actionstats_query = $Conn->prepare("
@@ -145,4 +139,3 @@ for my $speaker_id (@speakers) {
 #  print "http://127.0.0.1:8099/edustaja/$speaker_id-foo\n";
 
 }
-

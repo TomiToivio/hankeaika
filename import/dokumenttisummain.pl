@@ -18,14 +18,14 @@ binmode STDOUT, ":utf8";
 
 my $Conn = PuhDB::conn();
 
-# lista ei-käsitellyistä dokumenteista
+# lista ei-kÃ¤sitellyistÃ¤ dokumenteista
 my @docs = @ARGV ? @ARGV : @{$Conn->selectcol_arrayref("
   SELECT
     id
   FROM
     document
   WHERE
-    LENGTH(details_c)=65
+    LENGTH(details_c)>0
   ORDER BY date, id
 ")};
 
@@ -161,4 +161,3 @@ for my $doc_id (@docs) {
 
   print "\n";
 }
-

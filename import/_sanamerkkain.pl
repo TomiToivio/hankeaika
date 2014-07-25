@@ -41,8 +41,7 @@ sub notFound {
 
 my $Conn = PuhDB::conn();
 
-
-my @words = @{$Conn->selectcol_arrayref("SELECT word FROM word WHERE known IS NULL ORDER BY word LIMIT 10000")};
+my @words = @{$Conn->selectcol_arrayref("SELECT word FROM word WHERE known IS NULL ORDER BY word")};
 exit 1 if @words==0;
 
 my $updateWord = $Conn->prepare("UPDATE word SET known=? WHERE word=?");
@@ -62,4 +61,3 @@ for my $w (@words) {
     }
 }
 print "$n\n";
-

@@ -10,9 +10,7 @@ use Carp;
 
 use PuhDB;
 
-
 $SIG{__DIE__} = sub { Carp::confess @_ };
-
 
 local $/;
 
@@ -33,7 +31,6 @@ sub convert_doc_id {
 
   return $doc_id;
 }
-
 
 my $Conn = PuhDB::conn();
 
