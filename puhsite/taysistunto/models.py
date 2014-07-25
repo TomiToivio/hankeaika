@@ -60,10 +60,10 @@ class Speaker(models.Model):
         if self.group:
             return "%s %s (%s)" % (self.first_name, self.last_name, self.group)
         else:
-            return "%s %s" % (self.first_name, self.last_name)
+            return "%s" % (self.first_name)
 
     def get_absolute_url(self):
-        return '/puhujat/%d-%s' % (self.id, slugify(self.first_name + ' ' + self.last_name))
+        return '/puhujat/%d-%s' % (self.id, slugify(self.first_name + ' '))
 
     def details(self):
         
@@ -230,7 +230,7 @@ class Document(models.Model):
         return re.sub(r'-', '/', self.id)
 
     def orig_title(self):
-        return self.title + ' ' + self.orig_id()
+        return self.title 
 
     def local_date(self):
         return re.sub(r'(^|\.)0',r'\1', self.date.strftime("%d.%m.%Y"))

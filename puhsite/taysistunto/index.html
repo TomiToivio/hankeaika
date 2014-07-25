@@ -1,70 +1,12 @@
 {% extends "taysistunto/layout.html" %}
 
 {% block head %}
-  <link rel="alternate" type="application/atom+xml" title="Viimeisimmät täysistunnot syötteenä" href="/istunnot/syote" />
+
 {% endblock %}
 
 {% block content %}
 <div class="summary">
 
-<article class="subscribe">
-<br/>
-<h2><a href="#" id="toggle-subscribe">Seuraa eduskunnan täysistuntoja sähköpostitse tai syötteenä &raquo;</a></h2>
-<div id="subscribe" style="display: none">
-<form method="post" action="/tilaa">
-  {% csrf_token %}
-  <h4>Haluan seurata:</h4>
-  <ul>
-    <li>
-      <label><input name="follow_this" value="document" type="radio" checked> kaikkia täysistuntoja</label>
-    </li><li>
-      <label><input name="follow_this" value="speaker" type="radio"> puheenvuoroja, joissa puhujana on</label>
-      <select name="speaker_id">
-          <option value="">kuka tahansa</option>
-          {% for speaker in current_speakers %}
-          <option value="{{ speaker.id }}">{{ speaker.last_name }} {{ speaker.first_name }} ({{ speaker.group }})</option>
-          {% endfor %}
-      </select>
-    </li><li>
-      <label><input name="follow_this" value="group" type="radio"> kaikkia </label>
-        <select name="speaker_group">
-          {# huom! ryhmät myös views.py:ssä! #}
-          <option value="kok">Kansallisen kokoomuksen</option>
-          <option value="sd">Sosialidemokraattisen</option>
-          <option value="ps">Perussuomalaisten</option>
-          <option value="kesk">Keskustan</option>
-          <option value="vas">Vasemmistoliiton</option>
-          <option value="r">Ruotsalaisen</option>
-          <option value="vihr">Vihreän</option>
-          <option value="kd">Kristillisdemokraattisen</option>
-          <option value="vr">Vasenryhmän</option>
-        </select>
-        eduskuntaryhmän puheenvuoroja</label>
-    </li><li>
-      <label><input name="follow_this" value="keywords" type="radio"> puheenvuoroja, joissa esiintyy jokin näistä sanoista</label>:
-        <input name="keywords" type="text" placeholder="vr, junalippu">
-    </li>
-  </ul>
-
-<h4>Haluan tiedon uusista puheenvuoroista:</h4>
-<ul>
-  <li>
-    <label><input name="follow_method" value="email" type="radio" checked>
-      <span class="email-link">sähköpostiini</span>:</label> <input type="text" name="email" placeholder="oma.osoitteeni@sähköposti.fi"/>
-  </li><li>
-    <label><input name="follow_method" value="feed" type="radio">
-      <span class="feed-link">syötteenä</span></label>
-  </li><li>
-    <input type="submit" value=" Tilaa &raquo;">
-  </li>
-</ul>
-<p class="disclaimer">
-  Antamaasi sähköpostiosoitetta ei käytetä muuhun kuin näiden viestien toimittamiseen, eikä sitä myöskään luovuteta eteenpäin.
-  Voit päättää tilauksesi milloin tahansa.
-</p>
-</form>
-</div>
-</article>
 
   {% for doc in docs %}
     {% if doc.stats.action_count %}{# väliaikainen: ohitetaan ei-vielä-kokonaan-käsitellyt dokumentit #}

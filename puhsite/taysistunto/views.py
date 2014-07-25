@@ -73,10 +73,10 @@ def speaker(request, id):
         'speaker': speaker,
         'trend_url_prefix': '?vuosi=',
 #        'action_count': speaker.actions.count(),
-        'actions': actions[0:10],
+        'actions': actions[0:],
         'actions_url_prefix': actions_url_prefix,
         # 'latest_actions': speaker.actions.all().order_by('-date','-abs_pos')[0:10],
-        'years': range(1999, datetime.datetime.now().year+1), # huom: myos speaker-funktiossa
+        'years': range(2006, datetime.datetime.now().year+1), # huom: myos speaker-funktiossa
     })
 
 
@@ -161,7 +161,7 @@ def latest_speaker_actions_ajax(request, id, year=None):
 
 def all_speakers(request):
     # current_mps = Speaker.objects.defer('details_c').filter(is_current=1)
-    other_speakers = Speaker.objects.defer('details_c').filter(is_current=0)
+    other_speakers = Speaker.objects.defer('details_c').filter(is_current=1)
 
     # HUOM: ryhmät myös index.html:ssä!
     groups = [
@@ -204,14 +204,14 @@ def word(request, word):
 
         return render_to_response('taysistunto/sana.html', {
             'word':word_obj,
-            'actions': actions[0:10],
+            'actions': actions[0:],
             'occurrence_by_month':word_obj.occurrence_by_month(speaker_id=speaker_id),
             'trend_url_prefix': '?vuosi=',
             'admin':request.user.is_authenticated(),
             'actions_url_prefix': url_prefix,
             'year':year,
             'speaker':speaker,
-            'years': range(1999, datetime.datetime.now().year+1), # huom: myos speaker-funktiossa
+            'years': range(2006, datetime.datetime.now().year+1), # huom: myos speaker-funktiossa
         })
     except Word.DoesNotExist:
         t = loader.get_template('taysistunto/sanat.html')

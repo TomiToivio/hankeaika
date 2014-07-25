@@ -4,17 +4,16 @@
     {% spaceless %}
     <span class="speaker">
     <a href="{{ action.speaker_then.url }}">
-      <img class="speaker-half" src="{{ action.speaker_then.photoUrl }}"/>
       <span>{{ action.speaker_then }}</span>
     </a>:
     </span>
     {% endspaceless %}
     <a href="{{ action.url }}">{{ action.text|truncatewords:30 }}</a><br/>
     <span class="addl">
-      {{ action.doc.local_date }} • {{ action.doc.orig_title }} • {{ action.subject.subject }}
+      {{ action.subject.subject }}
     </span>
     <br style="clear:both"/>
   </li>
 {% endfor %}
 </ul>
-<a href="{{ actions_url_prefix }}1">Hae kaikki &raquo;</a>
+

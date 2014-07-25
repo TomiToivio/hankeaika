@@ -12,7 +12,7 @@
 {% endblock %}
 
 {% block title %}
-  {{ actions.0.speaker_then }} - {{ subj.subject }} - Puheenvuorot
+  {{ actions.0.speaker_then }} - {{ subj.subject }} - Hankkeet
 {% endblock %}
 
 {% block subject_details %}
@@ -20,7 +20,7 @@
     {% if subj.action_count > 1 %}
       <a href="{{ actions.0.url }}">&laquo; näytä koko keskustelu</a>
     {% else %}
-      (ainoa puheenvuoro)
+      (ainoa hanke)
     {% endif %}
   </p>
 {% endblock %}

@@ -2,14 +2,11 @@
 
 {% block document_left %}
   {% include 'taysistunto/include/sanapilvi.html' %}
-  <h4>Aiheet:</h4>
+  <h4>Projektit:</h4>
   <ul class="subjects">
   {% for subj in doc.subjects.all %}
   <li>
-    <a href="{{ subj.url }}">{{ subj.subject }}<span>
-      • {{ subj.action_count }}
-      puheenvuoro{% if subj.action_count > 1 %}a{% endif %}
-    </span></a>
+    <a href="{{ subj.url }}">{{ subj.subject }}</a>
   </li>
   {% endfor %}
   </ul>

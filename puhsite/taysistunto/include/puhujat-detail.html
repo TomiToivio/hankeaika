@@ -1,12 +1,11 @@
 <div class="top-speakers-container">
-<h4>Puhujat:</h4>
+<h4>Toteuttajat:</h4>
 <ul class="top-speakers">
 {% for speaker in doc.details.top_speakers %}
 
   {# HUOM! melkein sama alla!!!!! #}
   <li class="weight-{{ speaker.Weight }}">
-    <a href="{{ speaker.speaker.url }}" title="{{ speaker.speaker }}">
-      <img src="{{ speaker.speaker.photoUrl }}"/>
+    <a href="/puhujat/{{ speaker.id|slugify }}-{{ speaker.speaker|slugify }}-" title="{{ speaker.speaker }}">
       <span>{{ speaker.speaker }}</span>
     </a>
   </li>
@@ -18,15 +17,14 @@
 {% if doc.details.more_speakers_count %}
   <li class="more">
     <a href="#" id="show-all-speakers">
-      Näytä loput {{ doc.details.more_speakers_count }} puhujaa &raquo;
+      Näytä loput {{ doc.details.more_speakers_count }} toteuttajaa &raquo;
     </a></li>
 {% endif %}
 {% for speaker in doc.details.bottom_speakers %}
 
   {# HUOM! melkein sama yllä!!!!! #}
   <li class="weight-{{ speaker.Weight }} rest">
-    <a href="{{ speaker.speaker.url }}" title="{{ speaker.speaker }}">
-      <img src="{{ speaker.speaker.photoUrl }}"/>
+    <a href="{{ speaker.url }}" title="{{ speaker.speaker }}">
       <span>{{ speaker.speaker }}</span>
     </a>
   </li>

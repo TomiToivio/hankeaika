@@ -1,9 +1,9 @@
 {% extends "taysistunto/layout.html" %}
 
-{% block title %}Sana: {{ word.word }} - Puheenvuorot{% endblock %}
+{% block title %}Sana: {{ word.word }} - Hankeaika{% endblock %}
 
 {% block head %}
-<link rel="alternate" type="application/atom+xml" title="Puheenvuorot hakusanalla '{{ word.word }}'" href="{{ word.url }}/syote" />
+
 <script>
   
 </script>
@@ -22,7 +22,7 @@
   {% if speaker %}
     puhujan <b>{{ speaker }}</b>
   {% endif %}
-  puheenvuoroissa:</h4>
+  projekteissa:</h4>
   {% with occ=occurrence_by_month %}
     {% include 'taysistunto/include/kuukausipalkit.html' %}
   {% endwith %}
@@ -30,13 +30,12 @@
   {% if actions %}
   <div>
     <h4>
-      Puheenvuorot, joissa sana esiintyy:
-      <a class="feed-link" href="/sanat/{{ word.word }}/syote{% if speaker %}?puhuja={{ speaker.id }}{% endif %}">Tilaa syötteenä &raquo;</a>
+      Projektit, joissa sana esiintyy:
     </h4>
     {% include 'taysistunto/include/puheenvuoron-alku.html' %}
   </div>
   {% else %}
-  <div>Ei puheenvuoroja.</div>
+  <div>Ei projekteja.</div>
   {% endif %}
   
 </article>
