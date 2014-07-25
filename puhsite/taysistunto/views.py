@@ -70,6 +70,7 @@ def speaker(request, id):
     (actions, actions_url_prefix, year) = Action.search(action_search_args)
 
     return render_to_response('taysistunto/puhuja.html', {
+        'request': request,
         'speaker': speaker,
         'trend_url_prefix': '?vuosi=',
 #        'action_count': speaker.actions.count(),
@@ -77,7 +78,9 @@ def speaker(request, id):
         'actions_url_prefix': actions_url_prefix,
         # 'latest_actions': speaker.actions.all().order_by('-date','-abs_pos')[0:10],
         'years': range(2006, datetime.datetime.now().year+1), # huom: myos speaker-funktiossa
-    })
+    },
+    context_instance=RequestContext(request)
+)
 
 
 def action_search(request):

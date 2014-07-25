@@ -3,30 +3,9 @@
 {% load jsonify %}
 
 {% block head %}
-<link rel="alternate" type="application/atom+xml" title="Puheenvuorot: {{ speaker }}" href="{{ speaker.url }}/syote" />
-<script type="text/javascript" src="/static/jquery.animate-colors-min.js"></script>
-<script type="text/javascript" src="/static/jquery.animcloud.js"></script>
-<script>
-$(function() {
-  var top_words = {{ speaker.details.top_words_by_year|jsonify|safe }};
-  top_words.all = {{ speaker.details.top_words|jsonify|safe }};
-  
-  $('#words').animcloud(top_words['all']);
-  
-  $('#trend a').click(function(e) {
-    e.preventDefault();
-    var y = $(this).attr('data-year');
-    $('#words').animcloud(top_words[y]);
-    $('#words-year').text(y);
-    $('#actions-by-year').load('/puheenvuorot?' + jQuery.param({
-      puhuja: '{{ speaker.id }}',
-      vuosi: y,
-      contentonly: 1
-    }));
-  });
-  
-});
-</script>
+
+
+
 {% endblock %}
 
 {% block title %}{{ speaker }} - Projektit {% endblock %}
@@ -41,27 +20,61 @@ $(function() {
   {% endwith %}
   
 </div>
+
   <div id="actions-by-year">
     {% include 'taysistunto/include/puheenvuoron-alku.html' %}
   </div>
 
   <div>
-    <h4>Avainsanat: (<span id="words-year">2006-2014</span>)</h4>
-    {% if 0 %}
-    <p>Vuosi:
-      {% if speaker.details.top_word_years|length > 1 %}
-        <a class="years" href="#" data-year="all">kaikki</a>
-        {% for year in speaker.details.top_word_years %}
-        • <a class="years" href="#" data-year="{{ year }}">{{ year }}</a>
-        {% endfor %}
-      {% else %}
-        {{ speaker.details.top_word_years.0 }}
-      {% endif %}
-    </p>
-    {% endif %}
+    <h4>Avainsanat: 
+      (<span id="words-year">          
+          {% if request.GET.vuosi %}
+          {{ request.GET.vuosi }}
+	  {% else %}
+	  2006-2014
+	  {% endif %} 
+      </span>)
+    </h4>
+
     <div>
       <div id="backBuffer" class="wordcloud"></div>
-      <div id="words"></div>
+      <div id="words">
+
+
+	<ul class="top-words">
+	  {% if request.GET.vuosi %}
+<script type="text/javascript" src="/static/jquery.animate-colors-min.js"></script>
+<script type="text/javascript" src="/static/jquery.animcloud.js"></script>
+<script>
+$(function() {
+  var top_words = {{ speaker.details.top_words_by_year|jsonify|safe }};
+
+  $('#trend a').click(function(e) {
+    e.preventDefault();
+    var y = $(this).attr('data-year');
+    $('#words').animcloud(top_words[y]);
+    $('#words-year').text(y);
+    $('#actions-by-year').load('/puheenvuorot?' + jQuery.param({
+      puhuja: '{{ speaker.id }}',
+      vuosi: y,
+      contentonly: 1
+    }));
+  });
+
+});
+</script>
+
+
+	  {% else %}
+
+          {% for word in speaker.details.top_words %}
+	  <li class="weight-{{word.1}}">
+	    <a href="/sanat/{{ word.0|urlencode }}">{{ word.0 }}</a>
+	  </li>
+          {% endfor %}
+
+	  {% endif %}
+	</ul>
     </div>
   </div>
 <div style="bottom:0px;clear:both;padding:10px;margin:10px;height:10px;"><p></p></div>

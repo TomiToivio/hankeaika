@@ -1,6 +1,7 @@
 {% load jsonify %}
 {% block trend_head %}
 <script type="text/javascript" src="/static/jquery.sparkline.min.js"></script>
+
   <script>
     $(function() {
       $('#trend > span:first').sparkline({{ occ|slice:"84:"|jsonify }}, {
